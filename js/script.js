@@ -1,11 +1,7 @@
-var playerMove, playerInput;
-playerInput = prompt('Wybierz swój ruch! 1: kamień, 2: papier, 3: nożyce.');
-console.log('Wpisana odpowiedź to: ' + playerInput);
-playerMove = getMoveName(playerInput);
+var buttonRock = document.getElementById('button-rock');
+var buttonPaper = document.getElementById('button-paper');
+var buttonScissors = document.getElementById('button-scissors');
 
-var computerMove, randomNumber;
-randomNumber = Math.floor(Math.random() * 3 + 1);
-console.log('wylosowana liczba to: ' + randomNumber);
-computerMove = getMoveName(randomNumber);
-
-displayResult(playerMove, computerMove);
+buttonRock.addEventListener('click', function(){ buttonClicked('kamień'); });
+buttonPaper.addEventListener('click', function(){ buttonClicked('papier'); });
+buttonScissors.addEventListener('click', function(){ buttonClicked('nożyce'); });

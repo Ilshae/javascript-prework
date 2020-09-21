@@ -24,22 +24,43 @@ function getMoveName(argMoveId){
 	}
   }
   
-  function displayResult(argPlayerMove, argComputerMove){
-	if(argPlayerMove == 'papier' && argComputerMove == 'kamień'){
-	  printMessage('Wygrywasz!');s
-	} 
-	else if(argPlayerMove == 'kamień' && argComputerMove == 'nożyce'){
-		printMessage('Wygrywasz!');
-	}
-	else if(argPlayerMove == 'nożyce' && argComputerMove == 'papier'){
-		printMessage('Wygrywasz!');
-	}
-	else if(argPlayerMove == argComputerMove){
-		printMessage('Remis.');
-	}
-	else {
-	  printMessage('Przegrywasz :(');
-	}
-  
+function displayResult(argPlayerMove, argComputerMove){
+if(argPlayerMove == 'papier' && argComputerMove == 'kamień'){
+	printMessage('Wygrywasz!');s
+} 
+else if(argPlayerMove == 'kamień' && argComputerMove == 'nożyce'){
+	printMessage('Wygrywasz!');
+}
+else if(argPlayerMove == 'nożyce' && argComputerMove == 'papier'){
+	printMessage('Wygrywasz!');
+}
+else if(argPlayerMove == argComputerMove){
+	printMessage('Remis.');
+}
+else {
+	printMessage('Przegrywasz :(');
+}
+
 	printMessage('Zagrałem ' + argComputerMove + ', a Ty ' + argPlayerMove);
-  }
+}
+
+
+var argButtonName, buttonTest;
+
+/**
+ * Describe this function...
+ */
+function buttonClicked(argButtonName) {
+
+clearMessages();
+	console.log(argButtonName + ' został kliknięty');
+	var playerMove;
+	playerMove = argButtonName;
+
+	var computerMove, randomNumber;
+	randomNumber = Math.floor(Math.random() * 3 + 1);
+	console.log('wylosowana liczba to: ' + randomNumber);
+	computerMove = getMoveName(randomNumber);
+
+	displayResult(playerMove, computerMove);
+}
