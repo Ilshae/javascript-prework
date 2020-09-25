@@ -1,5 +1,5 @@
 function printMessage(msg){
-	var div = document.createElement('div');
+	let div = document.createElement('div');
 	div.innerHTML = msg;
 	document.getElementById('messages').appendChild(div);
 }
@@ -25,42 +25,33 @@ function getMoveName(argMoveId){
   }
   
 function displayResult(argPlayerMove, argComputerMove){
-if(argPlayerMove == 'papier' && argComputerMove == 'kamień'){
-	printMessage('Wygrywasz!');s
-} 
-else if(argPlayerMove == 'kamień' && argComputerMove == 'nożyce'){
-	printMessage('Wygrywasz!');
-}
-else if(argPlayerMove == 'nożyce' && argComputerMove == 'papier'){
-	printMessage('Wygrywasz!');
-}
-else if(argPlayerMove == argComputerMove){
-	printMessage('Remis.');
-}
-else {
-	printMessage('Przegrywasz :(');
-}
+	if(argPlayerMove == 'papier' && argComputerMove == 'kamień'){
+		printMessage('Wygrywasz!');
+	} 
+	else if(argPlayerMove == 'kamień' && argComputerMove == 'nożyce'){
+		printMessage('Wygrywasz!');
+	}
+	else if(argPlayerMove == 'nożyce' && argComputerMove == 'papier'){
+		printMessage('Wygrywasz!');
+	}
+	else if(argPlayerMove == argComputerMove){
+		printMessage('Remis.');
+	}
+	else {
+		printMessage('Przegrywasz :(');
+	}
 
 	printMessage('Zagrałem ' + argComputerMove + ', a Ty ' + argPlayerMove);
 }
 
-
-var argButtonName, buttonTest;
-
-/**
- * Describe this function...
- */
 function buttonClicked(argButtonName) {
-
-clearMessages();
+	clearMessages();
 	console.log(argButtonName + ' został kliknięty');
-	var playerMove;
-	playerMove = argButtonName;
-
-	var computerMove, randomNumber;
-	randomNumber = Math.floor(Math.random() * 3 + 1);
+	const playerMove = argButtonName;
+	 
+	let randomNumber = Math.floor(Math.random() * 3 + 1);
 	console.log('wylosowana liczba to: ' + randomNumber);
-	computerMove = getMoveName(randomNumber);
+	const computerMove = getMoveName(randomNumber);
 
 	displayResult(playerMove, computerMove);
 }
